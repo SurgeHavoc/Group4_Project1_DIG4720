@@ -15,6 +15,8 @@ public class EnemyPatrol : MonoBehaviour
     // Enemy should not start paused.
     private bool waiting = false;
 
+    public bool IsDefeated = false;
+
     private SpriteRenderer SpriteRenderer;
 
     private void Start()
@@ -24,7 +26,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        if(!waiting)
+        if(!waiting && !IsDefeated)
         {
             MoveToNextWaypoint();
         }
@@ -35,11 +37,11 @@ public class EnemyPatrol : MonoBehaviour
         Transform TargetWaypoint = waypoints[CurrentWaypointIndex];
         Vector2 direction = TargetWaypoint.position - transform.position;
 
-        if(direction.x > 0)
+        if(direction.x < 0)
         {
             SpriteRenderer.flipX = false;
         }
-        else if(direction.x < 0)
+        else if(direction.x > 0)
         {
             SpriteRenderer.flipX = true;
         }

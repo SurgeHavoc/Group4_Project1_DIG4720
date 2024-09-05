@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float move; // References Player input for movement.
+    private Vector2 MoveInput;// References Player input for movement.
     public float MoveSpeed = 6f;
-    public float JumpForce = 8f;
+    public float JumpForce = 10f;
 
     public float WallSlideSpeed = 3f;
 
@@ -14,12 +15,12 @@ public class PlayerMovement : MonoBehaviour
     private float WallJumpingTime = 0.2f;
     private float WallJumpingCounter;
     private float WallJumpingDuration = 0.2f;
-    private Vector2 WallJumpingPower = new Vector2(8f, 8f);
+    private Vector2 WallJumpingPower = new Vector2(5f, 8f);
 
     private bool IsWallSliding;
     private bool IsWallJumping;
     private bool IsFacingRight = true;
-    private bool IsJumpButtonHeld = false;
+    private bool IsJumping = false;
     private bool CanCancelWallJump = true;
 
     public float WallJumpCancelBuffer = 0.5f;
@@ -30,19 +31,37 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask GroundLayer;
     [SerializeField] private LayerMask WallLayer;
 
+    private PlayerControls controls;
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+
+        // Bind the movement and jump input.
+        controls.PlayerMovement.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
+        controls.PlayerMovement.Jump.performed += ctx => IsJumping = true;
+        controls.PlayerMovement.Jump.canceled += ctx => IsJumping = false;
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        move = Input.GetAxis("Horizontal");
-
-        // Player jumps when pressing jump.
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if(IsJumping && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+            IsJumping = false;
         }
 
-        IsJumpButtonHeld = Input.GetButton("Jump");
-        
         WallSlide();
         WallJump();
 
@@ -56,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!IsWallJumping)
         {
-            rb.velocity = new Vector2(move * MoveSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(MoveInput.x * MoveSpeed, rb.velocity.y);
         }
     }
 
@@ -101,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             WallJumpingCounter -= Time.deltaTime;
         }
 
-        if(Input.GetButtonDown("Jump") && WallJumpingCounter > 0f)
+        if(IsJumping && WallJumpingCounter > 0f)
         {
             IsWallJumping = true;
             rb.velocity = new Vector2(WallJumpingDirection * WallJumpingPower.x, WallJumpingPower.y);
@@ -120,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // After a delay, cancel if horizontal input is detected during the jump.
-        if(IsWallJumping && CanCancelWallJump && move != 0f)
+        if(IsWallJumping && CanCancelWallJump && MoveInput.x != 0f)
         {
             CancelWallJump();
         }
@@ -129,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     // Allows the player to extend the duration of the wall jump, allowing for longer wall jumps.
     private void ExtendWallJumping()
     {
-        if (IsJumpButtonHeld && WallJumpingDuration < 1f)
+        if (IsJumping && WallJumpingDuration < 1f)
         {
             WallJumpingDuration += 0.1f;
         }
@@ -166,12 +185,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Flip()
     {
-        if(IsFacingRight && move < 0f || !IsFacingRight && move > 0f)
+        if(IsFacingRight && MoveInput.x < 0f || !IsFacingRight && MoveInput.x> 0f)
         {
             IsFacingRight = !IsFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1;
             transform.localScale = localScale;
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("Player died!");
     }
 }
