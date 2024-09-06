@@ -15,7 +15,9 @@ public class PlayerMovement : MonoBehaviour
     private float WallJumpingTime = 0.2f;
     private float WallJumpingCounter;
     private float WallJumpingDuration = 0.2f;
-    private Vector2 WallJumpingPower = new Vector2(5f, 8f);
+    private float WallJumpCooldown = 0.5f; // A cooldown for jumping.
+    private float WallJumpCooldownTimer = 0f; // A timer to track the cooldown.
+    private Vector2 WallJumpingPower = new(5f, 8f);
 
     private bool IsWallSliding;
     private bool IsWallJumping;
@@ -56,10 +58,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IsJumping && IsGrounded())
+        if(WallJumpCooldownTimer > 0f)
+        {
+            WallJumpCooldownTimer -= Time.deltaTime;
+        }
+
+        if (IsJumping && IsGrounded() && WallJumpCooldownTimer <= 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpForce);
             IsJumping = false;
+            WallJumpCooldownTimer = WallJumpCooldown;
         }
 
         WallSlide();
@@ -120,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
             WallJumpingCounter -= Time.deltaTime;
         }
 
-        if(IsJumping && WallJumpingCounter > 0f)
+        if(IsJumping && WallJumpingCounter > 0f && WallJumpCooldownTimer <= 0f)
         {
             IsWallJumping = true;
             rb.velocity = new Vector2(WallJumpingDirection * WallJumpingPower.x, WallJumpingPower.y);
@@ -134,6 +142,8 @@ public class PlayerMovement : MonoBehaviour
                 localScale.x *= -1f;
                 transform.localScale = localScale;
             }
+
+            WallJumpCooldownTimer = WallJumpCooldown;
 
             InvokeRepeating(nameof(ExtendWallJumping), WallJumpingDuration, 1f);
         }

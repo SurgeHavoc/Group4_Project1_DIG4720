@@ -8,14 +8,15 @@ public class HeadDetect : MonoBehaviour
     private Animator EnemyAnimator;
     public float BounceForce = 5f;
 
-    private EnemyPatrol EnemyPatrol;
+    private IEnemyBehavior EnemyBehavior;
 
     // Start is called before the first frame update
     void Start()
     {
         enemy = transform.parent.gameObject;
         EnemyAnimator = enemy.GetComponent<Animator>();
-        EnemyPatrol = enemy.GetComponent<EnemyPatrol>();
+
+        EnemyBehavior = enemy.GetComponent<IEnemyBehavior>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,9 +28,16 @@ public class HeadDetect : MonoBehaviour
                 EnemyAnimator.SetTrigger("Defeat");
             }
 
-            if(EnemyPatrol != null)
+            if(EnemyBehavior != null)
             {
-                EnemyPatrol.IsDefeated = true;
+                EnemyBehavior.IsDefeated = true;
+            }
+
+            // Reach over to LevelExitManager to notify that a unique enemy type has been defeated.
+            LevelExitManager LevelExitManager = FindObjectOfType<LevelExitManager>();
+            if(LevelExitManager != null && EnemyBehavior != null)
+            {
+                LevelExitManager.EnemyDefeated(EnemyBehavior.EnemyType);
             }
 
             // Disable colliders.

@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol : MonoBehaviour, IEnemyBehavior
 {
+    // Interface properties.
+    public string EnemyType { get; private set; }
+    public bool IsDefeated { get; set; } = false;
+
     // Set waypoints for enemy to patrol.
     public Transform[] waypoints;
     public float EnemyPatrolSpeed = 2f;
@@ -14,8 +18,6 @@ public class EnemyPatrol : MonoBehaviour
     private int CurrentWaypointIndex = 0;
     // Enemy should not start paused.
     private bool waiting = false;
-
-    public bool IsDefeated = false;
 
     private SpriteRenderer SpriteRenderer;
 
