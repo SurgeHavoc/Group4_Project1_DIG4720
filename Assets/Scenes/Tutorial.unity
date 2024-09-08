@@ -8682,22 +8682,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3987969342896957847, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5544837834419869502, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5544837834419869502, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
-      propertyPath: m_Size.y
-      value: 1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 5544837834419869502, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5993037810519696493, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8705,10 +8689,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5993037810519696493, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2077071767}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
 --- !u!1 &1044987793
 GameObject:
@@ -8816,7 +8797,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 11
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8906,7 +8887,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -9299,8 +9280,8 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 0ac40feeed679ce49a3d55c3409fbb29, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -552260695, guid: c324bab810d5c904aa656cfc83957aeb, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1032395406, guid: ebe1eeb023cefd7428dac8e98a8b5afc, type: 3}
   - m_RefCount: 1
@@ -9316,7 +9297,7 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: 1741648000, guid: d2dbf8e6179c3284a9bad8564944a8fb, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 9319fe66bc3b0c347b8cd78e168818c5, type: 3}
+    m_Data: {fileID: -552260695, guid: c324bab810d5c904aa656cfc83957aeb, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 643015532, guid: ebe1eeb023cefd7428dac8e98a8b5afc, type: 3}
   - m_RefCount: 3
@@ -9327,8 +9308,8 @@ Tilemap:
     m_Data: {fileID: 1718937231, guid: ebe1eeb023cefd7428dac8e98a8b5afc, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1500601811, guid: ebe1eeb023cefd7428dac8e98a8b5afc, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 9319fe66bc3b0c347b8cd78e168818c5, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 502b6279fdd72034fb2856ffdc5a7e7e, type: 3}
   - m_RefCount: 4
@@ -9638,32 +9619,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2077071761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5993037810519696493, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
-  m_PrefabInstance: {fileID: 754201630}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2077071767
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077071761}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a76e5fe656ffb664ab366e4ca9ea0b82, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &417041877730522392
 PrefabInstance:
   m_ObjectHideFlags: 0

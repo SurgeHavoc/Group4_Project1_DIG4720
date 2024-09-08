@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsWallJumping;
     private bool IsFacingRight = true;
     private bool IsJumping = false;
+    private bool IsWalking;
     private bool CanCancelWallJump = true;
 
     public float WallJumpCancelBuffer = 0.5f;
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask WallLayer;
 
     private PlayerControls controls;
+    private Animator animator;
+    private SpriteRenderer SpriteRenderer;
 
     private void Awake()
     {
@@ -41,8 +44,12 @@ public class PlayerMovement : MonoBehaviour
 
         // Bind the movement and jump input.
         controls.PlayerMovement.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
+        controls.PlayerMovement.Move.canceled += ctx => MoveInput = Vector2.zero;
         controls.PlayerMovement.Jump.performed += ctx => IsJumping = true;
         controls.PlayerMovement.Jump.canceled += ctx => IsJumping = false;
+
+        animator = GetComponent<Animator>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -77,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        UpdateAnimations();
     }
 
     private void FixedUpdate()
@@ -195,17 +204,32 @@ public class PlayerMovement : MonoBehaviour
 
     void Flip()
     {
-        if(IsFacingRight && MoveInput.x < 0f || !IsFacingRight && MoveInput.x> 0f)
+        if(MoveInput.x > 0 && !IsFacingRight)
         {
-            IsFacingRight = !IsFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
+            IsFacingRight = true;
+            SpriteRenderer.flipX = false;
+        }
+        else if(MoveInput.x < 0 && IsFacingRight)
+        {
+            IsFacingRight = false;
+            SpriteRenderer.flipX = true;
         }
     }
 
     public void Die()
     {
         Debug.Log("Player died!");
+    }
+
+    private void UpdateAnimations()
+    {
+        if(MoveInput.x != 0)
+        {
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
     }
 }
