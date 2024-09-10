@@ -31,6 +31,25 @@ public class ProgressManager : MonoBehaviour
     public void ResetProgress()
     {
         DefeatedEnemyTypes.Clear();
+
+        ResetEnemies();
+    }
+
+    public void ResetEnemies()
+    {
+        EnemyStatic[] enemies = FindObjectsOfType<EnemyStatic>();
+        foreach (var enemy in enemies)
+        {
+            enemy.gameObject.SetActive(true);
+            enemy.GetComponent<Collider2D>().enabled = true;
+            enemy.GetComponent<IEnemyBehavior>().IsDefeated = false;
+
+            HeadDetect HeadDetect = enemy.GetComponentInChildren<HeadDetect>();
+            if (HeadDetect != null)
+            {
+                HeadDetect.GetComponent<Collider2D>().enabled = true;
+            }
+        }
     }
 
     public bool HasDefeatedRequiredEnemies()

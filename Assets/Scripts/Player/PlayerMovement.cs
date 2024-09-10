@@ -49,8 +49,8 @@ public class PlayerMovement : MonoBehaviour
         controls.PlayerMovement.Jump.performed += ctx => IsJumping = true;
         controls.PlayerMovement.Jump.canceled += ctx => IsJumping = false;
 
-        animator = GetComponent<Animator>();
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void OnEnable()
@@ -205,15 +205,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Flip()
     {
-        if(MoveInput.x > 0 && !IsFacingRight)
+        if(IsFacingRight && MoveInput.x < 0f || !IsFacingRight && MoveInput.x > 0f)
         {
-            IsFacingRight = true;
-            SpriteRenderer.flipX = false;
-        }
-        else if(MoveInput.x < 0 && IsFacingRight)
-        {
-            IsFacingRight = false;
-            SpriteRenderer.flipX = true;
+            IsFacingRight = !IsFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
 
@@ -221,8 +218,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Player died!");
 
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void UpdateAnimations()

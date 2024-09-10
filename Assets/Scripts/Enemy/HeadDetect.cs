@@ -62,6 +62,8 @@ public class HeadDetect : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // Destroy the enemy.
-        Destroy(enemy);
+        //Destroy(enemy);
+
+        enemy.SetActive(false);
     }
 }

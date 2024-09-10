@@ -257,5 +257,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c8e6a907eb3b44a8d75c93db268039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType: Watermelon
-  IsDefeated: 0

@@ -53,6 +53,8 @@ public class LevelExitManager : MonoBehaviour
 
     void LoadNextLevel()
     {
+        ProgressManager ProgressManager = FindObjectOfType<ProgressManager>();
+        ProgressManager.ResetEnemies();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
