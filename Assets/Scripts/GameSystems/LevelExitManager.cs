@@ -5,25 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class LevelExitManager : MonoBehaviour
 {
+    private static LevelExitManager Instance;
+
     public GameObject LevelExit;
 
-    private HashSet<string> DefeatedEnemyTypes = new HashSet<string>();
-    private int RequiredUniqueEnemies = 1;
+    private Collider2D LevelExitCollider;
 
-    private Collider2D levelExitCollider;
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // LevelExit starts inactive at first.
     private void Start()
     {
         LevelExit.SetActive(false);
-
-        levelExitCollider = LevelExit.GetComponent<Collider2D>();
+        LevelExitCollider = LevelExit.GetComponent<Collider2D>();
     }
 
     public void EnemyDefeated(string EnemyType)
     {
-        DefeatedEnemyTypes.Add(EnemyType);
-
-        if(DefeatedEnemyTypes.Count >= RequiredUniqueEnemies)
+        ProgressManager.Instance.EnemyDefeated(EnemyType);
+        if(ProgressManager.Instance.HasDefeatedRequiredEnemies())
         {
             ShowLevelExit();
         }
@@ -43,18 +54,5 @@ public class LevelExitManager : MonoBehaviour
     void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        /*
-        int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        int NextSceneIndex = CurrentSceneIndex + 1;
-
-        if(NextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(NextSceneIndex);
-        }
-        else
-        {
-            Debug.Log("Last scene in sequence reached.");
-        }*/
     }
 }

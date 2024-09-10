@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float WallJumpingDuration = 0.2f;
     private float WallJumpCooldown = 0.5f; // A cooldown for jumping.
     private float WallJumpCooldownTimer = 0f; // A timer to track the cooldown.
-    private Vector2 WallJumpingPower = new(5f, 8f);
+    private Vector2 WallJumpingPower = new(6f, 8f);
 
     private bool IsWallSliding;
     private bool IsWallJumping;
@@ -219,6 +220,9 @@ public class PlayerMovement : MonoBehaviour
     public void Die()
     {
         Debug.Log("Player died!");
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Test");
     }
 
     private void UpdateAnimations()
