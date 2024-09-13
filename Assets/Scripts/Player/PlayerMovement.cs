@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class PlayerMovement : MonoBehaviour
 {
     private Vector2 MoveInput;// References Player input for movement.
@@ -49,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
         controls.PlayerMovement.Jump.performed += ctx => IsJumping = true;
         controls.PlayerMovement.Jump.canceled += ctx => IsJumping = false;
 
+        // Bind dev controls for instantly quitting game and fast forwarding to next level.
+        controls.PlayerMovement.QuitGame.performed += ctx => QuitGame();
+        controls.PlayerMovement.LoadNextLevel.performed += ctx => LoadNextLevel();
+
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
     }
@@ -64,9 +72,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(WallJumpCooldownTimer > 0f)
+        HandleWallJumpAndWallSlide();
+
+        UpdateAnimations();
+    }
+
+    private void HandleWallJumpAndWallSlide()
+    {
+        if (WallJumpCooldownTimer > 0f)
         {
             WallJumpCooldownTimer -= Time.deltaTime;
         }
@@ -81,12 +96,10 @@ public class PlayerMovement : MonoBehaviour
         WallSlide();
         WallJump();
 
-        if(!IsWallJumping)
+        if (!IsWallJumping)
         {
             Flip();
         }
-
-        UpdateAnimations();
     }
 
     private void FixedUpdate()
@@ -231,5 +244,25 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsWalking", false);
         }
+    }
+
+    /* Dev controls
+     * "E" to load next level.
+     * 
+     * "Esc" to escape game.
+     */
+
+    private void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void QuitGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
