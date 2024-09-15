@@ -6,15 +6,15 @@ public class ProgressManager : MonoBehaviour
 {
     public static ProgressManager Instance { get; private set; }
 
-    public HashSet<string> DefeatedEnemyTypes = new HashSet<string>();
-    public int RequiredUniqueEnemies = 1;
+    public Dictionary<string, int> DefeatedEnemyCounts = new();
+    public int EnemiesPerType = 3;
 
     private void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,15 +24,29 @@ public class ProgressManager : MonoBehaviour
 
     public void EnemyDefeated(string EnemyType)
     {
-        DefeatedEnemyTypes.Add(EnemyType);
-        Debug.Log("Unique enemies defeated: " + DefeatedEnemyTypes.Count);
+        if(DefeatedEnemyCounts.ContainsKey(EnemyType))
+        {
+            DefeatedEnemyCounts[EnemyType]++;
+        }
+        else
+        {
+            DefeatedEnemyCounts[EnemyType] = 1;
+        }
+        Debug.Log(EnemyType + " enemies defeated: " + DefeatedEnemyCounts[EnemyType]);
     }
 
     public void ResetProgress()
     {
-        DefeatedEnemyTypes.Clear();
+        DefeatedEnemyCounts.Clear();
+
+        Debug.Log("Resetting defeated enemy counts.");
+
+        Debug.Log("Watermelon enemies defeated: " + (DefeatedEnemyCounts.ContainsKey("Watermelon") ? DefeatedEnemyCounts["Watermelon"] : 0));
+        Debug.Log("Grape enemies defeated: " + (DefeatedEnemyCounts.ContainsKey("Grape") ? DefeatedEnemyCounts["Grape"] : 0));
+        Debug.Log("Banana enemies defeated: " + (DefeatedEnemyCounts.ContainsKey("Banana") ? DefeatedEnemyCounts["Banana"] : 0));
 
         ResetEnemies();
+        HUDUIManager.Instance.ResetAllCounters();
     }
 
     public void ResetEnemies()
@@ -54,6 +68,13 @@ public class ProgressManager : MonoBehaviour
 
     public bool HasDefeatedRequiredEnemies()
     {
-        return DefeatedEnemyTypes.Count >= RequiredUniqueEnemies;
+        foreach(var count in DefeatedEnemyCounts.Values)
+        {
+            if(count < EnemiesPerType)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -34,6 +34,7 @@ public class LevelExitManager : MonoBehaviour
     public void EnemyDefeated(string EnemyType)
     {
         ProgressManager.Instance.EnemyDefeated(EnemyType);
+        HUDUIManager.Instance.UpdateEnemyCounter(EnemyType, ProgressManager.Instance.DefeatedEnemyCounts[EnemyType]);
         if(ProgressManager.Instance.HasDefeatedRequiredEnemies())
         {
             ShowLevelExit();
@@ -54,7 +55,7 @@ public class LevelExitManager : MonoBehaviour
     void LoadNextLevel()
     {
         ProgressManager ProgressManager = FindObjectOfType<ProgressManager>();
-        ProgressManager.ResetEnemies();
+        ProgressManager.ResetProgress();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

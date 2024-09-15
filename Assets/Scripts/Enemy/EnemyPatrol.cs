@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour, IEnemyBehavior
 {
+    [SerializeField]
+    private string enemyType;
+
     // Interface properties.
-    public string EnemyType { get; private set; }
+    public string EnemyType
+    {
+        // Set the enemy type value in the inspector.
+        get { return enemyType; }
+    }
+
     public bool IsDefeated { get; set; } = false;
 
     // Set waypoints for enemy to patrol.

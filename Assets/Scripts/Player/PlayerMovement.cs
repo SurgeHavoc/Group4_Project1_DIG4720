@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float WallJumpingTime = 0.2f;
     private float WallJumpingCounter;
     private float WallJumpingDuration = 0.2f;
-    private float WallJumpCooldown = 0.5f; // A cooldown for jumping.
+    private float WallJumpCooldown = 0.8f; // A cooldown for jumping.
     private float WallJumpCooldownTimer = 0f; // A timer to track the cooldown.
     private Vector2 WallJumpingPower = new(6f, 8f);
 
@@ -31,7 +31,12 @@ public class PlayerMovement : MonoBehaviour
     private bool IsWalking;
     private bool CanCancelWallJump = true;
 
-    public float WallJumpCancelBuffer = 0.5f;
+    public float WallJumpCancelBuffer = 2.5f;
+
+    public int WallJumpLimit = 2; // Wall jumping limit over a period of time.
+    public float WallJumpResetTime = 1f; // Time in seconds to reset the wall jump counter.
+    private int CurrentWallJumpCount = 0; // Keeps track of how many wall jumps have been made.
+    private float WallJumpTimeCounter = 0f; // Time counter to reset the wall jump count.
 
     [SerializeField] private Rigidbody2D rb; // References Player.
     [SerializeField] private Transform GroundCheck;
@@ -124,6 +129,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsTouchingWall() && !IsGrounded())
         {
+            if(!IsWallSliding)
+            {
+                StartCoroutine(ResetWallJumpCooldownWithDelay(0.5f));
+            }
+
             IsWallSliding = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -WallSlideSpeed, float.MaxValue));
         }
@@ -133,10 +143,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private IEnumerator ResetWallJumpCooldownWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        WallJumpCooldownTimer = 0f;
+    }
+
     private void WallJump()
     {
-        // Can wall jump when wall sliding.
-        if(IsWallSliding)
+        // Limit the amount of wall jumps over a certain period of time.
+        if(WallJumpTimeCounter > 0f)
+        {
+            WallJumpTimeCounter -= Time.deltaTime;
+        }
+        else
+        {
+            // Resets the wall jump count after the time expires.
+            CurrentWallJumpCount = 0;
+        }
+
+        // Can wall jump when wall sliding and when within the allowed wall jump limit.
+        if(IsWallSliding && CurrentWallJumpCount < WallJumpLimit)
         {
             IsWallJumping = false;
             WallJumpingDirection = -transform.localScale.x;
@@ -151,7 +178,7 @@ public class PlayerMovement : MonoBehaviour
             WallJumpingCounter -= Time.deltaTime;
         }
 
-        if(IsJumping && WallJumpingCounter > 0f && WallJumpCooldownTimer <= 0f)
+        if(IsJumping && WallJumpingCounter > 0f && WallJumpCooldownTimer <= 0f && CurrentWallJumpCount < WallJumpLimit)
         {
             IsWallJumping = true;
             rb.velocity = new Vector2(WallJumpingDirection * WallJumpingPower.x, WallJumpingPower.y);
@@ -167,6 +194,10 @@ public class PlayerMovement : MonoBehaviour
             }
 
             WallJumpCooldownTimer = WallJumpCooldown;
+
+            // Increment the wall jump counter and reset the time counter.
+            CurrentWallJumpCount++;
+            WallJumpTimeCounter = WallJumpResetTime;
 
             InvokeRepeating(nameof(ExtendWallJumping), WallJumpingDuration, 1f);
         }
@@ -230,6 +261,11 @@ public class PlayerMovement : MonoBehaviour
     public void Die()
     {
         Debug.Log("Player died!");
+
+        if(ProgressManager.Instance != null)
+        {
+            ProgressManager.Instance.ResetProgress();
+        }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
