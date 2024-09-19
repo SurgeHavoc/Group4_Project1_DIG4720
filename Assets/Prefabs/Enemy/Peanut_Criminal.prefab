@@ -10,27 +10,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 0.85859287
       objectReference: {fileID: 0}
     - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Size.y
-      value: 0.45
+      value: 0.41700503
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.025286391
       objectReference: {fileID: 0}
     - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Offset.y
-      value: -0.28
+      value: 0.19842781
       objectReference: {fileID: 0}
     - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Size.x
-      value: 0.68
+      value: 0.99580956
       objectReference: {fileID: 0}
     - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Size.y
-      value: 0.16
+      value: 0.480523
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.085351884
       objectReference: {fileID: 0}
     - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Offset.y
-      value: 0.04
+      value: 0.5443525
       objectReference: {fileID: 0}
     - target: {fileID: 3717370835755012171, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Sprite

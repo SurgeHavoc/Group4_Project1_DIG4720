@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f91104dc2930e10429c07706bd98a0f1
+guid: 6d27e094321187e46b4f8ea56074d3f5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,190 +123,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_0
+      name: MonkeyHouse_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75cd17a9e21c0e34aa8ff49fc11613a1
-      internalID: 856069043
+      spriteID: 49cbb7ce8fe68644cb10744ce50b81da
+      internalID: 449293934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_1
+      name: MonkeyHouse_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbd1a13af5b7f4646a7555f59d9defee
-      internalID: -1455214133
+      spriteID: 4ed600d7c6146d34e975e3d28383146d
+      internalID: -1747904138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_2
+      name: MonkeyHouse_2
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 402651efb805b9f47bdfb13a032b6263
-      internalID: 809041796
+      spriteID: ca492c881fa5abf44878e0e31f18bd8d
+      internalID: -1806796168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_3
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 787519ecfa464ce4b8023c8120cc3f2d
-      internalID: 1457803425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 512
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 355e384e96c029a4c8877ef34a61f377
-      internalID: -256595738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_5
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 512
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d54b82c5f975de54fa3f342b31b58056
-      internalID: 1346777438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_6
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 512
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0656bbf89c2c6d4db71bd300f7ce839
-      internalID: 1866804051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_7
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 512
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28bf40b9dd611bf4db5e2bb775582c00
-      internalID: -1776493767
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SadSprite(DeathSpritesheetV2)_8
+      name: MonkeyHouse_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 512
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 941830d35528a0e439eef655b6825ce9
-      internalID: -1288519620
+      spriteID: 37818e48c5456d644a3879966e20dc2b
+      internalID: -1424576567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonkeyHouse_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc789369b00dba4aa31ac5c7b07bcc9
+      internalID: 86769930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonkeyHouse_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a69e538d65ca648a571050fee8d8a5
+      internalID: 1719316112
       vertices: []
       indices: 
       edges: []
@@ -322,15 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SadSprite(DeathSpritesheetV2)_0: 856069043
-      SadSprite(DeathSpritesheetV2)_1: -1455214133
-      SadSprite(DeathSpritesheetV2)_2: 809041796
-      SadSprite(DeathSpritesheetV2)_3: 1457803425
-      SadSprite(DeathSpritesheetV2)_4: -256595738
-      SadSprite(DeathSpritesheetV2)_5: 1346777438
-      SadSprite(DeathSpritesheetV2)_6: 1866804051
-      SadSprite(DeathSpritesheetV2)_7: -1776493767
-      SadSprite(DeathSpritesheetV2)_8: -1288519620
+      MonkeyHouse_0: 449293934
+      MonkeyHouse_1: -1747904138
+      MonkeyHouse_2: -1806796168
+      MonkeyHouse_3: -1424576567
+      MonkeyHouse_4: 86769930
+      MonkeyHouse_5: 1719316112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
