@@ -13220,7 +13220,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 39
-      m_TileSpriteIndex: 38
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -13240,7 +13240,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 39
-      m_TileSpriteIndex: 38
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -13560,7 +13560,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 39
-      m_TileSpriteIndex: 38
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -14850,7 +14850,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 39
-      m_TileSpriteIndex: 38
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -15477,8 +15477,8 @@ Tilemap:
     m_Data: {fileID: 407844161, guid: c324bab810d5c904aa656cfc83957aeb, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 1947442246, guid: c324bab810d5c904aa656cfc83957aeb, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 4
+    m_Data: {fileID: 178296192, guid: 612ebeca276aaca4095e3150a59f0f7b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2112584546, guid: d1f0c0b61ab5bba4ab8cab6c46e5d6ed, type: 3}
   - m_RefCount: 1
@@ -15535,8 +15535,6 @@ Tilemap:
     m_Data: {fileID: -1240659161, guid: fae92b578d329c640986bb03ca501fb4, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1150155251, guid: fae92b578d329c640986bb03ca501fb4, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 178296192, guid: 612ebeca276aaca4095e3150a59f0f7b, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 228
     m_Data:
@@ -16770,6 +16768,10 @@ PrefabInstance:
     - target: {fileID: 2830960529533984821, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137873046955303557, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
+      propertyPath: AttackRange
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6830507759866932179, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
       propertyPath: m_Size.x

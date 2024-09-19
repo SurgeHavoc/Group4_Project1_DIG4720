@@ -34839,6 +34839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6137873046955303557, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
+      propertyPath: AttackRange
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6822429649520625066, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
