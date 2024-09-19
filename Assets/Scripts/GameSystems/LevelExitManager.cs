@@ -11,6 +11,9 @@ public class LevelExitManager : MonoBehaviour
 
     private Collider2D LevelExitCollider;
 
+    [SerializeField]
+    public List<string> EnemyTypesInLevel;
+
     private void Awake()
     {
         if(Instance == null)
@@ -35,7 +38,7 @@ public class LevelExitManager : MonoBehaviour
     {
         ProgressManager.Instance.EnemyDefeated(EnemyType);
         HUDUIManager.Instance.UpdateEnemyCounter(EnemyType, ProgressManager.Instance.DefeatedEnemyCounts[EnemyType]);
-        if(ProgressManager.Instance.HasDefeatedRequiredEnemies())
+        if(ProgressManager.Instance.HasDefeatedRequiredEnemies(EnemyTypesInLevel))
         {
             ShowLevelExit();
         }

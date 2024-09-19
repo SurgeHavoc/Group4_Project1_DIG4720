@@ -66,11 +66,11 @@ public class ProgressManager : MonoBehaviour
         }
     }
 
-    public bool HasDefeatedRequiredEnemies()
+    public bool HasDefeatedRequiredEnemies(List<string> EnemyTypesInLevel)
     {
-        foreach(var count in DefeatedEnemyCounts.Values)
+        foreach(var EnemyType in EnemyTypesInLevel)
         {
-            if(count < EnemiesPerType)
+            if(!DefeatedEnemyCounts.ContainsKey(EnemyType) || DefeatedEnemyCounts[EnemyType] < EnemiesPerType)
             {
                 return false;
             }

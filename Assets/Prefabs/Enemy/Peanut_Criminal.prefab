@@ -8,6 +8,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Size.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Size.x
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 3717370835755012171, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -51,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 4053482701666658921, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918614861300485285, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: enemyType
+      value: Peanut
       objectReference: {fileID: 0}
     - target: {fileID: 5954533074110024988, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Name

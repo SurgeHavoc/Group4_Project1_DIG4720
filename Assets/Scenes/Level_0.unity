@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4918614861300485285, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: enemyType
+      value: Grape
+      objectReference: {fileID: 0}
     - target: {fileID: 5954533074110024988, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Name
       value: Grape_Criminal
@@ -349,10 +353,14 @@ PrefabInstance:
     - target: {fileID: 329977095649328983, guid: 83bd240e6811a5242bb2a0dc36c13ea5, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: 419008cfcc0252a4f9e9725903d406f1, type: 2}
     - target: {fileID: 344926869560777289, guid: 83bd240e6811a5242bb2a0dc36c13ea5, type: 3}
       propertyPath: m_Name
       value: PatrolCriminal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4340544573055141057, guid: 83bd240e6811a5242bb2a0dc36c13ea5, type: 3}
+      propertyPath: enemyType
+      value: Banana
       objectReference: {fileID: 0}
     - target: {fileID: 4340544573055141057, guid: 83bd240e6811a5242bb2a0dc36c13ea5, type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -1105,6 +1113,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3040534117064060411, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
+      propertyPath: enemyType
+      value: Watermelon
+      objectReference: {fileID: 0}
     - target: {fileID: 4382719094607998018, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: m_Name
       value: Watermelon_Criminal
@@ -2028,7 +2040,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: /3
+  m_text: /1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dae0b729f187d0441b41bea86d91e480, type: 2}
   m_sharedMaterial: {fileID: -2264697679420664833, guid: dae0b729f187d0441b41bea86d91e480, type: 2}
@@ -2667,15 +2679,15 @@ PrefabInstance:
     - target: {fileID: 6952379606391924929, guid: 8cd530f955b65e34faed09179c473875, type: 3}
       propertyPath: FoodCounter1
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1232316166}
     - target: {fileID: 6952379606391924929, guid: 8cd530f955b65e34faed09179c473875, type: 3}
       propertyPath: FoodCounter2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 314809005}
     - target: {fileID: 6952379606391924929, guid: 8cd530f955b65e34faed09179c473875, type: 3}
       propertyPath: FoodCounter3
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 748342576}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14147,10 +14159,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1766653281197184702, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.345
-      objectReference: {fileID: 0}
     - target: {fileID: 2830960529533984821, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.712331
@@ -14191,9 +14199,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6830507759866932179, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6
+    - target: {fileID: 6137873046955303557, guid: 9fd859124b6b22b46ba27f409c022d0c, type: 3}
+      propertyPath: AttackCooldown
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14324,7 +14332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: /3
+  m_text: /1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dae0b729f187d0441b41bea86d91e480, type: 2}
   m_sharedMaterial: {fileID: -2264697679420664833, guid: dae0b729f187d0441b41bea86d91e480, type: 2}
@@ -14532,6 +14540,38 @@ PrefabInstance:
       propertyPath: LevelExit
       value: 
       objectReference: {fileID: 519587317}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: enemyTypesInLevel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[0]
+      value: Grape
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[1]
+      value: Watermelon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[2]
+      value: Banana
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: enemyTypesInLevel.Array.data[0]
+      value: Grape
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: enemyTypesInLevel.Array.data[1]
+      value: Watermelon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: enemyTypesInLevel.Array.data[2]
+      value: Banana
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14560,6 +14600,10 @@ PrefabInstance:
     - target: {fileID: 1282346581212649125, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480020032903694851, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
+      propertyPath: EnemiesPerType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6316769032711354927, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14842,7 +14886,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: /3
+  m_text: /1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dae0b729f187d0441b41bea86d91e480, type: 2}
   m_sharedMaterial: {fileID: -2264697679420664833, guid: dae0b729f187d0441b41bea86d91e480, type: 2}

@@ -235,8 +235,9 @@ public class PlayerMovement : MonoBehaviour
         {
             ProgressManager.Instance.ResetProgress();
         }
+        SceneTracker.LastScene = SceneManager.GetActiveScene().name;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Game_over");
     }
 
     private void UpdateAnimations()

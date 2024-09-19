@@ -28,9 +28,13 @@ public class HUDUIManager : MonoBehaviour
         switch(EnemyType)
         {
             case "Grape":
+            case "Peanut":
+            case "Cherry":
                 FoodCounter1.text = count.ToString();
                 break;
             case "Watermelon":
+            case "Bread":
+            case "Ice Cream":
                 FoodCounter2.text = count.ToString();
                 break;
             case "Banana":

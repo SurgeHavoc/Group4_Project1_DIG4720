@@ -8,6 +8,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Size.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Size.x
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Size.y
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859153612796269262, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3717370835755012171, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52,9 +76,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4918614861300485285, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: enemyType
+      value: Cherry
+      objectReference: {fileID: 0}
     - target: {fileID: 5954533074110024988, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Name
       value: Cherry_Criminal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954533074110024988, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5980777053090064386, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Controller

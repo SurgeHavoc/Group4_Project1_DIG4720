@@ -62,6 +62,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""b11e377b-5bfc-4b6d-ae7f-cbd14650ee07"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -350,6 +359,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""LoadNextLevel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""41e0b9b7-bcb9-4140-9d3d-809f33793a45"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea3a43d1-d33c-4aa9-8b48-58c877e4e9f4"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -385,6 +416,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerMovement_Jump = m_PlayerMovement.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMovement_QuitGame = m_PlayerMovement.FindAction("QuitGame", throwIfNotFound: true);
         m_PlayerMovement_LoadNextLevel = m_PlayerMovement.FindAction("LoadNextLevel", throwIfNotFound: true);
+        m_PlayerMovement_Attack = m_PlayerMovement.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -450,6 +482,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_Jump;
     private readonly InputAction m_PlayerMovement_QuitGame;
     private readonly InputAction m_PlayerMovement_LoadNextLevel;
+    private readonly InputAction m_PlayerMovement_Attack;
     public struct PlayerMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -458,6 +491,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerMovement_Jump;
         public InputAction @QuitGame => m_Wrapper.m_PlayerMovement_QuitGame;
         public InputAction @LoadNextLevel => m_Wrapper.m_PlayerMovement_LoadNextLevel;
+        public InputAction @Attack => m_Wrapper.m_PlayerMovement_Attack;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -479,6 +513,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @LoadNextLevel.started += instance.OnLoadNextLevel;
             @LoadNextLevel.performed += instance.OnLoadNextLevel;
             @LoadNextLevel.canceled += instance.OnLoadNextLevel;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -495,6 +532,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @LoadNextLevel.started -= instance.OnLoadNextLevel;
             @LoadNextLevel.performed -= instance.OnLoadNextLevel;
             @LoadNextLevel.canceled -= instance.OnLoadNextLevel;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -536,5 +576,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnQuitGame(InputAction.CallbackContext context);
         void OnLoadNextLevel(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

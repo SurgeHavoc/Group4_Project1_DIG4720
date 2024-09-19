@@ -258,6 +258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peanut_Criminal
       objectReference: {fileID: 0}
+    - target: {fileID: 8998068432648048152, guid: f0df0e07cb17a4844a31ee0b9183da4d, type: 3}
+      propertyPath: enemyType
+      value: Peanut
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -733,6 +737,10 @@ PrefabInstance:
     - target: {fileID: 7655875208775323553, guid: f0df0e07cb17a4844a31ee0b9183da4d, type: 3}
       propertyPath: m_Name
       value: Peanut_Criminal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998068432648048152, guid: f0df0e07cb17a4844a31ee0b9183da4d, type: 3}
+      propertyPath: enemyType
+      value: Peanut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12180,6 +12188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Peanut_Criminal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8998068432648048152, guid: f0df0e07cb17a4844a31ee0b9183da4d, type: 3}
+      propertyPath: enemyType
+      value: Peanut
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15531,6 +15543,38 @@ PrefabInstance:
       propertyPath: LevelExit
       value: 
       objectReference: {fileID: 120547293}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: enemyTypesInLevel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[0]
+      value: Peanut
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[1]
+      value: Bread
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[2]
+      value: Banana
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: enemyTypesInLevel.Array.data[0]
+      value: Peanut
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: enemyTypesInLevel.Array.data[1]
+      value: Bread
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: enemyTypesInLevel.Array.data[2]
+      value: Banana
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15591,6 +15635,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1021704625384358347, guid: 7473bf9133419e1428d56727cd26f44d, type: 3}
+      propertyPath: enemyType
+      value: Bread
+      objectReference: {fileID: 0}
     - target: {fileID: 1787221592737693810, guid: 7473bf9133419e1428d56727cd26f44d, type: 3}
       propertyPath: m_Name
       value: Bread_Criminal (1)
@@ -16477,6 +16525,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1021704625384358347, guid: 7473bf9133419e1428d56727cd26f44d, type: 3}
+      propertyPath: enemyType
+      value: Bread
+      objectReference: {fileID: 0}
     - target: {fileID: 1787221592737693810, guid: 7473bf9133419e1428d56727cd26f44d, type: 3}
       propertyPath: m_Name
       value: Bread_Criminal
@@ -16845,6 +16897,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1027632318}
     m_Modifications:
+    - target: {fileID: 1021704625384358347, guid: 7473bf9133419e1428d56727cd26f44d, type: 3}
+      propertyPath: enemyType
+      value: Bread
+      objectReference: {fileID: 0}
     - target: {fileID: 1787221592737693810, guid: 7473bf9133419e1428d56727cd26f44d, type: 3}
       propertyPath: m_Name
       value: Bread_Criminal
@@ -16922,6 +16978,14 @@ PrefabInstance:
     - target: {fileID: 1282346581212649125, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480020032903694851, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
+      propertyPath: CurrentLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480020032903694851, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
+      propertyPath: EnemiesPerType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6316769032711354927, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274704221477159917, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3717370835755012171, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52,9 +60,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4918614861300485285, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: enemyType
+      value: Bread
+      objectReference: {fileID: 0}
     - target: {fileID: 5954533074110024988, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Name
       value: Bread_Criminal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954533074110024988, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5980777053090064386, guid: 460d16c1a356014489a2b5a23faa91c9, type: 3}
       propertyPath: m_Controller

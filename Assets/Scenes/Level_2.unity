@@ -938,7 +938,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3040534117064060411, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: enemyType
-      value: Watermelon
+      value: Cherry
       objectReference: {fileID: 0}
     - target: {fileID: 4382719094607998018, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: m_Name
@@ -34113,7 +34113,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3040534117064060411, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: enemyType
-      value: Grape
+      value: Ice Cream
       objectReference: {fileID: 0}
     - target: {fileID: 4382719094607998018, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: m_Name
@@ -34599,6 +34599,22 @@ PrefabInstance:
       propertyPath: LevelExit
       value: 
       objectReference: {fileID: 120547293}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[0]
+      value: Cherry
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[1]
+      value: Ice Cream
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239328036153329518, guid: 4e52d141e6bb5cc41b316e4e673d4097, type: 3}
+      propertyPath: EnemyTypesInLevel.Array.data[2]
+      value: Banana
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36686,7 +36702,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3040534117064060411, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: enemyType
-      value: Watermelon
+      value: Cherry
       objectReference: {fileID: 0}
     - target: {fileID: 4382719094607998018, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: m_Name
@@ -36752,7 +36768,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3040534117064060411, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: enemyType
-      value: Grape
+      value: Ice Cream
       objectReference: {fileID: 0}
     - target: {fileID: 4382719094607998018, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: m_Name
@@ -37331,7 +37347,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3040534117064060411, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: enemyType
-      value: Grape
+      value: Ice Cream
       objectReference: {fileID: 0}
     - target: {fileID: 4382719094607998018, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: m_Name
@@ -37858,6 +37874,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1480020032903694851, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
+      propertyPath: CurrentLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6316769032711354927, guid: 277ff8a1387ffff4894a4e5264772747, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.48860762
@@ -38112,7 +38132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3040534117064060411, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: enemyType
-      value: Watermelon
+      value: Cherry
       objectReference: {fileID: 0}
     - target: {fileID: 4382719094607998018, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: m_Name

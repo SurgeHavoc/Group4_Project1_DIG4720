@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 0.04}
+  m_Offset: {x: -0.01, y: -0.23}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.1}
+  m_Size: {x: 0.5, y: 0.37}
   m_EdgeRadius: 0
 --- !u!114 &526262822566567936
 MonoBehaviour:
@@ -104,7 +104,8 @@ GameObject:
   - component: {fileID: 4363907265082116444}
   - component: {fileID: 9205607501676716723}
   - component: {fileID: 3040534117064060411}
-  m_Layer: 0
+  - component: {fileID: 5347917320358863844}
+  m_Layer: 7
   m_Name: Watermelon_Criminal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -232,7 +233,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09, y: -0.06}
+  m_Offset: {x: -0.09, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -243,7 +244,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.9}
+  m_Size: {x: 0.72, y: 0.41}
   m_EdgeRadius: 0
 --- !u!114 &3040534117064060411
 MonoBehaviour:
@@ -257,4 +258,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c8e6a907eb3b44a8d75c93db268039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 
+  enemyType: Watermelon
+--- !u!114 &5347917320358863844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382719094607998018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb8a2c16f4e0bf449316d462f5e2698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
