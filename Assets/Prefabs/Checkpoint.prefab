@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8687258127040171756
+--- !u!1 &8520775773450495255
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5383575809198322794}
-  - component: {fileID: 5913903596120305404}
-  - component: {fileID: 3640035678007764663}
+  - component: {fileID: 5508264379248200344}
+  - component: {fileID: 6895948413485379511}
+  - component: {fileID: 8163807298905042375}
   m_Layer: 0
-  m_Name: KillZone
+  m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5383575809198322794
+--- !u!4 &5508264379248200344
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8687258127040171756}
+  m_GameObject: {fileID: 8520775773450495255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.49, y: 6.63, z: -0.071154125}
-  m_LocalScale: {x: 38.733204, y: 1, z: 1}
+  m_LocalPosition: {x: 19.5, y: 3.06, z: 0.0122435875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5913903596120305404
+--- !u!114 &6895948413485379511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8687258127040171756}
+  m_GameObject: {fileID: 8520775773450495255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c0a54cbc347e44dafd65ae6714688f, type: 3}
+  m_Script: {fileID: 11500000, guid: dc00b516b73b93a4a88a69f54772e951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &3640035678007764663
+--- !u!61 &8163807298905042375
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8687258127040171756}
+  m_GameObject: {fileID: 8520775773450495255}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -88,5 +88,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 2}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0

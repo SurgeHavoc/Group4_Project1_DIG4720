@@ -56,6 +56,8 @@ public class GameOver : MonoBehaviour
 
     public void ReloadLastScene()
     {
+        ProgressManager.Instance.ResetProgress();
+
         SceneManager.LoadScene(LastScene);
     }
 }

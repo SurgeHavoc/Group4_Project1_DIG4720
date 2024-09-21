@@ -22,6 +22,7 @@ public class ProgressManager : MonoBehaviour
         }
     }
 
+    // A method to update progress when an enemy is defeated.
     public void EnemyDefeated(string EnemyType)
     {
         if(DefeatedEnemyCounts.ContainsKey(EnemyType))
@@ -45,8 +46,8 @@ public class ProgressManager : MonoBehaviour
         Debug.Log("Grape enemies defeated: " + (DefeatedEnemyCounts.ContainsKey("Grape") ? DefeatedEnemyCounts["Grape"] : 0));
         Debug.Log("Banana enemies defeated: " + (DefeatedEnemyCounts.ContainsKey("Banana") ? DefeatedEnemyCounts["Banana"] : 0));
 
-        ResetEnemies();
-        HUDUIManager.Instance.ResetAllCounters();
+        //ResetEnemies();
+        //HUDUIManager.Instance.ResetAllCounters();
     }
 
     public void ResetEnemies()

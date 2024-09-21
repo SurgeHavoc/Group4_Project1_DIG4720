@@ -227,19 +227,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Die()
-    {
-        Debug.Log("Player died!");
-
-        if(ProgressManager.Instance != null)
-        {
-            ProgressManager.Instance.ResetProgress();
-        }
-        SceneTracker.LastScene = SceneManager.GetActiveScene().name;
-
-        SceneManager.LoadScene("Game_over");
-    }
-
     private void UpdateAnimations()
     {
         if(MoveInput.x != 0)

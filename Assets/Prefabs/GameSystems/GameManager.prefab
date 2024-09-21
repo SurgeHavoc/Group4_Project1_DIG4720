@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5791920780503524822}
   - component: {fileID: 1480020032903694851}
   - component: {fileID: 1282346581212649125}
+  - component: {fileID: 8931460287652645682}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ad701a82871eb46a5a869dff7d7759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequiredUniqueEnemies: 1
+  EnemiesPerType: 3
 --- !u!82 &1282346581212649125
 AudioSource:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8201728263314463698}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f4b0064c10c88f844a27179b87619588, type: 3}
@@ -157,3 +158,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8931460287652645682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201728263314463698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19856bbd9f7d9694d939337dce5c4d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnThisSceneName: Main_Menu

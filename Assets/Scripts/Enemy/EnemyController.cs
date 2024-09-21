@@ -23,9 +23,26 @@ public class EnemyController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth PlayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if(PlayerHealth != null)
+            {
+                PlayerHealth.TakeDamage(transform.position);
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerMovement>().Die();
+            PlayerHealth PlayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (PlayerHealth != null)
+            {
+                // Enemy's position is passed through the method to help calculate knockback.
+                PlayerHealth.TakeDamage(transform.position);
+            }
         }
     }
 }

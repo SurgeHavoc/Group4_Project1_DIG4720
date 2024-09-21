@@ -8,14 +8,8 @@ public class KillZone : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            if(collision.CompareTag("Player"))
-            {
-                PlayerMovement PlayerMovement = collision.GetComponent<PlayerMovement>();
-                if(PlayerMovement != null)
-                {
-                    PlayerMovement.Die();
-                }
-            }
+            PlayerHealth PlayerHealth = collision.GetComponent<PlayerHealth>();
+            PlayerHealth.Die();
         }
     }
 }
