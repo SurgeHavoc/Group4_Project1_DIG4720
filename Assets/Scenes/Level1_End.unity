@@ -857,7 +857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move night secured!
+  m_text: Movie night secured!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dae0b729f187d0441b41bea86d91e480, type: 2}
   m_sharedMaterial: {fileID: -2264697679420664833, guid: dae0b729f187d0441b41bea86d91e480, type: 2}
