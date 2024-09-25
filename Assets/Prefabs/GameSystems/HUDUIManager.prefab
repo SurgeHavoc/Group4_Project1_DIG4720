@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2559682918698239889}
   - component: {fileID: 6952379606391924929}
+  - component: {fileID: 4044684206862606544}
   m_Layer: 0
   m_Name: HUDUIManager
   m_TagString: Untagged
@@ -47,3 +48,18 @@ MonoBehaviour:
   FoodCounter1: {fileID: 0}
   FoodCounter2: {fileID: 0}
   FoodCounter3: {fileID: 0}
+--- !u!114 &4044684206862606544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733262198324500700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653ded5f776b2b7489471b7ab3965053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life1: {fileID: 0}
+  Life2: {fileID: 0}
+  Life3: {fileID: 0}

@@ -33,6 +33,11 @@ public class PlayerMovement : MonoBehaviour
 
     public float WallJumpCancelBuffer = 2.5f;
 
+    public float CoyoteTime = 0.2f;
+    private float CoyoteTimeCounter;
+
+    public float InhibitInput = 0f;
+
     [SerializeField] private Rigidbody2D rb; // References Player.
     [SerializeField] private Transform GroundCheck;
     [SerializeField] private Transform WallCheck;
@@ -42,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerControls controls;
     private Animator animator;
     private SpriteRenderer SpriteRenderer;
+
+    public AudioSource AudioSource;
+    public AudioClip JumpSound;
 
     private void Awake()
     {
@@ -59,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
 
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
+
+        if (AudioSource == null)
+            AudioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -74,7 +85,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // A check to see if the game is paused.
+        if (PauseMenu.IsPaused) return;
+
+        if(InhibitInput > 0)
+        {
+            InhibitInput -= Time.deltaTime;
+            return;
+        }
+
         HandleWallJumpAndWallSlide();
+
+        HandleCoyoteTime();
 
         UpdateAnimations();
     }
@@ -86,13 +108,6 @@ public class PlayerMovement : MonoBehaviour
             WallJumpCooldownTimer -= Time.deltaTime;
         }
 
-        if (IsJumping && IsGrounded() && WallJumpCooldownTimer <= 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
-            IsJumping = false;
-            WallJumpCooldownTimer = WallJumpCooldown;
-        }
-
         WallSlide();
         WallJump();
 
@@ -102,9 +117,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void HandleCoyoteTime()
+    {
+        if(IsGrounded())
+        {
+            CoyoteTimeCounter = CoyoteTime;
+        }
+        else
+        {
+            CoyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if(IsJumping && CoyoteTimeCounter > 0f)
+        {
+            Jump();
+            IsJumping = false;
+            CoyoteTimeCounter = 0f;
+        }
+    }
+
     private void FixedUpdate()
     {
-        if(!IsWallJumping)
+        // A check to see if the game is paused.
+        if (PauseMenu.IsPaused) return;
+
+        if (!IsWallJumping)
         {
             rb.velocity = new Vector2(MoveInput.x * MoveSpeed, rb.velocity.y);
         }
@@ -118,6 +155,23 @@ public class PlayerMovement : MonoBehaviour
     private bool IsTouchingWall()
     {
         return Physics2D.OverlapCircle(WallCheck.position, 0.1f, WallLayer);
+    }
+
+    private void Jump()
+    {
+        if(PauseMenu.IsPaused || InhibitInput > 0)
+        {
+            return;
+        }
+
+        if (WallJumpCooldownTimer <= 0f)
+        {
+            animator.SetTrigger("IsJumping");
+            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+            AudioSource.PlayOneShot(JumpSound);
+            IsJumping = false;
+            WallJumpCooldownTimer = WallJumpCooldown;
+        }
     }
 
     private void WallSlide()
@@ -155,6 +209,7 @@ public class PlayerMovement : MonoBehaviour
         {
             IsWallJumping = true;
             rb.velocity = new Vector2(WallJumpingDirection * WallJumpingPower.x, WallJumpingPower.y);
+            animator.SetTrigger("IsJumping");
             WallJumpingCounter = 0f;
 
             // Flip the player's direction after making a wall jump.
@@ -165,6 +220,8 @@ public class PlayerMovement : MonoBehaviour
                 localScale.x *= -1f;
                 transform.localScale = localScale;
             }
+
+            AudioSource.PlayOneShot(JumpSound);
 
             WallJumpCooldownTimer = WallJumpCooldown;
 
@@ -229,9 +286,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        if(MoveInput.x != 0)
+        // A check to see if the game is paused.
+        if (PauseMenu.IsPaused) return;
+
+        bool isGrounded = IsGrounded();
+
+        animator.SetBool("isJumping", !isGrounded);
+
+        if(isGrounded)
         {
-            animator.SetBool("IsWalking", true);
+            if (MoveInput.x != 0)
+            {
+                animator.SetBool("IsWalking", true);
+            }
+            else
+            {
+                animator.SetBool("IsWalking", false);
+            }
         }
         else
         {

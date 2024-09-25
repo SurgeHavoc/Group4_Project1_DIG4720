@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 526262822566567936, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 48d22b7d156a14249bc2d4d0a75a1e06, type: 3}
     - target: {fileID: 3040534117064060411, guid: 3446447e6db449440b0cb5c38638c6e4, type: 3}
       propertyPath: enemyType
       value: Grape

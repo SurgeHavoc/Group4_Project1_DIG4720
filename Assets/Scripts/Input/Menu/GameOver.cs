@@ -14,8 +14,13 @@ public class GameOver : MonoBehaviour
 
     private string LastScene;
 
+    public AudioSource AudioSource;
+    public AudioClip FailSound;
+
     private void Awake()
     {
+        AudioSource.PlayOneShot(FailSound);
+
         PlayerInput = GetComponent<PlayerInput>();
 
         GameRestartAction = PlayerInput.actions["GameStart"];

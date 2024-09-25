@@ -12,11 +12,18 @@ public class GameComplete : MonoBehaviour
     private PlayerInput PlayerInput;
     private InputAction GameCompleteAction;
 
+    public AudioSource AudioSource;
+    public AudioClip GoodSound;
+
     private void Awake()
     {
         PlayerInput = GetComponent<PlayerInput>();
 
         GameCompleteAction = PlayerInput.actions["GameStart"];
+
+        AudioSource = GetComponent<AudioSource>();
+
+        AudioSource.PlayOneShot(GoodSound);
     }
 
     private void OnEnable()

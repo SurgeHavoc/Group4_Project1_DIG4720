@@ -14,6 +14,9 @@ public class LevelExitManager : MonoBehaviour
     [SerializeField]
     public List<string> EnemyTypesInLevel;
 
+    public AudioSource AudioSource;
+    public AudioClip GoodSound;
+
     private void Awake()
     {
         if(Instance == null)
@@ -47,6 +50,8 @@ public class LevelExitManager : MonoBehaviour
     private void ShowLevelExit()
     {
         LevelExit.SetActive(true);
+
+        AudioSource.PlayOneShot(GoodSound);
     }
 
     public void PlayerReachedLevelExit()

@@ -15,12 +15,20 @@ public class PlayerAttack : MonoBehaviour
     private PlayerControls controls;
     private Animator animator;
 
+    public AudioSource AudioSource;
+    public AudioClip SlashSound;
+
     private void Awake()
     {
         controls = new PlayerControls();
         controls.PlayerMovement.Attack.performed += ctx => Attack();
 
         animator = GetComponentInChildren<Animator>();
+
+        if(AudioSource == null)
+        {
+            AudioSource = GetComponent<AudioSource>();
+        }
     }
 
     private void OnEnable()
@@ -39,20 +47,28 @@ public class PlayerAttack : MonoBehaviour
         {
             animator.SetTrigger("AttackTrigger");
 
+            AudioSource.PlayOneShot(SlashSound);
+
             Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
 
             foreach (Collider2D enemy in HitEnemies)
             {
                 Debug.Log("Hit " + enemy.name);
 
-                HeadDetect HeadDetect = enemy.GetComponentInChildren<HeadDetect>();
+                IEnemyBehavior EnemyBehavior = enemy.GetComponent<IEnemyBehavior>();
 
-                HeadDetect.TriggerDefeatByAttack();
-                enemy.GetComponent<EnemyController>().TakeDamage(AttackDamage);
+                // If the enemy has not been defeated yet, then process the attack.
+                if(EnemyBehavior != null && !EnemyBehavior.IsDefeated)
+                {
+                    HeadDetect HeadDetect = enemy.GetComponentInChildren<HeadDetect>();
 
-                // Notify ProgressManager about the enemy's defeat.
-                string EnemyType = enemy.tag;
-                ProgressManager.Instance.EnemyDefeated(EnemyType);
+                    HeadDetect.TriggerDefeatByAttack();
+                    enemy.GetComponent<EnemyController>().TakeDamage(AttackDamage);
+
+                    // Notify ProgressManager about the enemy's defeat.
+                    string EnemyType = enemy.tag;
+                    ProgressManager.Instance.EnemyDefeated(EnemyType);
+                }
             }
 
             LastAttackTime = Time.time;

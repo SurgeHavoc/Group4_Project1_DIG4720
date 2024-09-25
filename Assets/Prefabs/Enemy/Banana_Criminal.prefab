@@ -277,3 +277,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BounceForce: 5
+  JumpSound: {fileID: 8300000, guid: 48d22b7d156a14249bc2d4d0a75a1e06, type: 3}

@@ -13,6 +13,9 @@ public class UIInputManager : MonoBehaviour
     private PlayerInput PlayerInput;
     private InputAction GameStartAction;
 
+    public AudioClip RetroSelectSound;
+    public AudioSource AudioSource;
+
     private void Awake()
     {
         // A singleton pattern setup.
@@ -27,6 +30,7 @@ public class UIInputManager : MonoBehaviour
         }
 
         PlayerInput = GetComponent<PlayerInput>();
+        AudioSource = GetComponent<AudioSource>();
 
         GameStartAction = PlayerInput.actions["GameStart"];
     }
@@ -53,6 +57,8 @@ public class UIInputManager : MonoBehaviour
     {
         if(PlayButton != null)
         {
+            AudioSource.PlayOneShot(RetroSelectSound);
+
             PlayButton.onClick.Invoke();
         }
         else

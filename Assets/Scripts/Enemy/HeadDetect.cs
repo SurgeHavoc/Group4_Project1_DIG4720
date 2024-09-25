@@ -10,6 +10,9 @@ public class HeadDetect : MonoBehaviour
 
     private IEnemyBehavior EnemyBehavior;
 
+    private AudioSource PlayerAudioSource;
+    public AudioClip JumpSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,9 @@ public class HeadDetect : MonoBehaviour
         EnemyAnimator = enemy.GetComponent<Animator>();
 
         EnemyBehavior = enemy.GetComponent<IEnemyBehavior>();
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        PlayerAudioSource = player.GetComponent<AudioSource>();
     }
 
     public void TriggerDefeatByAttack()
@@ -58,6 +64,8 @@ public class HeadDetect : MonoBehaviour
             if(PlayerRb != null)
             {
                 PlayerRb.velocity = new Vector2(PlayerRb.velocity.x, BounceForce);
+
+                PlayerAudioSource.PlayOneShot(JumpSound);
             }
         }
     }

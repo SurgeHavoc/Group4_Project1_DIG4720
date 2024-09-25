@@ -145,6 +145,15 @@ public class PlayerHealth : MonoBehaviour
 
             CurrentHealth = MaxHealth;
             Debug.Log("Player respawned. Death count: " + DeathCount + " Current health: " + CurrentHealth);
+
+            LivesUIManager LivesUIManager = FindObjectOfType<LivesUIManager>();
+
+            if(LivesUIManager != null)
+            {
+                LivesUIManager.UpdateLivesUI();
+            }
+
+            StartCoroutine(BecomeTemporarilyInvincible());
         }
     }
 }
