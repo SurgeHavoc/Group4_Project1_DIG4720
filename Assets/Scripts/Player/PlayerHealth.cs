@@ -36,12 +36,14 @@ public class PlayerHealth : MonoBehaviour
         if(!IsInvincible)
         {
             CurrentHealth--;
+            CurrentHealth--;
+            CurrentHealth--;
             Debug.Log("Player health: " + CurrentHealth);
 
 
-            ApplyKnockback(EnemyPosition);
+            //ApplyKnockback(EnemyPosition);
 
-            StartCoroutine(BecomeTemporarilyInvincible());
+            //StartCoroutine(BecomeTemporarilyInvincible());
 
             if(CurrentHealth <= 0)
             {
@@ -53,7 +55,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-
+    /*
     private void ApplyKnockback(Vector2 EnemyPosition)
     {
         // Set the knockback direction to be away from the enemy.
@@ -66,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
         // Apply the knockback force to the player's Rigidbody2D.
         //rb.AddForce(KnockbackDirection * KnockbackForce, ForceMode2D.Impulse);
         rb.velocity = new Vector2(KnockbackDirection.x * HorizontalKnockbackForce, VerticalKnockbackForce);
-    }
+    }*/
 
     private IEnumerator BecomeTemporarilyInvincible()
     {
